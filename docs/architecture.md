@@ -36,6 +36,7 @@ Presentation (Qt Widgets/QML)
 - Repositories abstract persistence.
 - Storage adapters implement file or DB access.
 
+
 ## Implemented Scaffold
 
 The `src/` directory contains a working scaffold for this architecture:
@@ -74,6 +75,7 @@ This scaffold is intentionally UI-framework-agnostic so it can be wired into Qt 
 - Add reporting features by introducing new domain services.
 - Introduce tests by mocking repository interfaces in ViewModels.
 
+
 ## Integration Checklist
 
 - Pull the LFS archive and extract the Visual Studio solution.
@@ -82,3 +84,5 @@ This scaffold is intentionally UI-framework-agnostic so it can be wired into Qt 
 - Wire UI widgets or QML screens to the ViewModels and domain services.
 - Replace the file-backed repositories with a database-backed adapter when
   ready for multi-user or larger datasets.
+=======
+

@@ -1,8 +1,14 @@
+
 # Source Layout
 
 This folder contains the layered MVVM + repository scaffold. It is designed to be
 integrated into the extracted Visual Studio/Qt solution after pulling the LFS
 archive.
+=======
+# Source Layout (Proposed)
+
+This folder outlines the intended structure for the application codebase.
+
 
 ```
 src/
@@ -16,6 +22,7 @@ src/
     repositories/
     storage/
 ```
+
 
 ## What's Included
 
@@ -31,6 +38,8 @@ src/
   into ViewModels.
 - Use a single shared storage location for user and waste data (e.g., an app
   data directory).
+
+=======
 
 ## Conventions
 
