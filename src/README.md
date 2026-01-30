@@ -24,6 +24,14 @@ src/
 - **ViewModels** to coordinate UI state and domain logic.
 - **Presentation stubs** that represent UI-facing entry points.
 
+## Integration Tips
+
+- Treat the presentation classes as placeholders for Qt Widgets or QML screens.
+- Construct repositories and services in your app bootstrap, then inject them
+  into ViewModels.
+- Use a single shared storage location for user and waste data (e.g., an app
+  data directory).
+
 ## Conventions
 
 - Presentation is UI-only; no file/database access.

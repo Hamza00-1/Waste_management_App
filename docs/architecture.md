@@ -73,3 +73,12 @@ This scaffold is intentionally UI-framework-agnostic so it can be wired into Qt 
 - Swap file storage with SQLite by adding a new storage adapter.
 - Add reporting features by introducing new domain services.
 - Introduce tests by mocking repository interfaces in ViewModels.
+
+## Integration Checklist
+
+- Pull the LFS archive and extract the Visual Studio solution.
+- Add the `src/` folders to the solution or move the scaffold into the extracted
+  project tree.
+- Wire UI widgets or QML screens to the ViewModels and domain services.
+- Replace the file-backed repositories with a database-backed adapter when
+  ready for multi-user or larger datasets.
