@@ -5,20 +5,33 @@
 
 ## 🌟 Project Overview
 
-**Gestion Déchet** is a robust desktop application developed using **C++** and the **Qt framework**. Its primary purpose is to provide a comprehensive system for managing and tracking waste-related data.
+**Gestion Déchet** is a desktop application built with **C++** and the **Qt framework** to manage and track waste-related data. It emphasizes user authentication, a central dashboard, and dedicated waste entry workflows.
 
-The application is designed with a focus on user experience, featuring a secure authentication system and a dedicated dashboard for operational oversight. The name "Gestion Déchet" is French for "Waste Management."
+This repository now includes a **layered MVVM + repository** architecture scaffold under `src/` to separate UI, domain logic, and persistence. The original Visual Studio solution and Qt UI remain inside the Git LFS archive (`gestiondechet.zip`) until it is pulled and extracted.
 
 ### Academic Context
 
-This project was developed as part of the curriculum at the **École d'Ingénierie Digitale et d'Intelligence Artificielle (EIDIA)** at the **Université Euro-Méditerranéenne de Fès (UEMF)**. It serves as a practical application of C++ and object-oriented programming principles in a real-world scenario.
+This project was developed as part of the curriculum at the **École d'Ingénierie Digitale et d'Intelligence Artificielle (EIDIA)** at the **Université Euro-Méditerranéenne de Fès (UEMF)**.
 
 ## ✨ Features
 
-*   **Secure User Authentication:** Implements a secure system for user registration and login.
-*   **Local User Management:** Handles user data persistence by storing credentials in a local file (`utilisateurs.txt`).
-*   **Intuitive Dashboard:** A central hub providing an overview and navigation to all application features.
-*   **Dedicated Waste Management Module:** A specific section (`GestionDechetsPage`) for handling and logging waste-related entries and data.
+*   **Secure User Authentication:** Registration and login workflows.
+*   **Local User Management:** Persistence via file-backed repositories (see `src/data`).
+*   **Intuitive Dashboard:** Central navigation hub.
+*   **Dedicated Waste Management Module:** Add and list waste entries.
+
+## 🧱 Architecture Overview
+
+The repository follows a layered MVVM architecture with a repository abstraction:
+
+```
+Presentation (Qt Widgets/QML)
+  -> ViewModels (UI state + commands)
+    -> Domain (models + services)
+      -> Data (repositories + storage adapters)
+```
+
+See [`docs/architecture.md`](docs/architecture.md) for details and the `src/` scaffold for concrete interfaces and file-backed adapters.
 
 ## 🛠️ Technology Stack
 
@@ -35,16 +48,13 @@ Follow these steps to set up and run the project on your local machine.
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed:
-
 1.  **Git:** For cloning the repository.
-2.  **Git LFS (Large File Storage):** Essential for downloading the main project archive.
+2.  **Git LFS (Large File Storage):** Required for the main project archive.
     ```bash
-    # Install Git LFS (instructions vary by OS)
     git lfs install
     ```
 3.  **Visual Studio:** The project is configured as a Visual Studio solution.
-4.  **Qt Framework:** The appropriate Qt version (compatible with your Visual Studio installation) must be installed and configured in Visual Studio.
+4.  **Qt Framework:** Install the Qt version compatible with your Visual Studio setup.
 
 ### Installation and Setup
 
@@ -55,52 +65,46 @@ Before you begin, ensure you have the following installed:
     ```
 
 2.  **Download the Project Archive (using Git LFS):**
-    The core project files are contained within a large zip archive tracked by Git LFS. You must pull the actual file content:
     ```bash
     git lfs pull
     ```
-    *This command will download the `gestiondechet.zip` file.*
 
 3.  **Extract the Project Files:**
-    Unzip the archive to reveal the project structure. It is recommended to extract it into a new folder to keep the repository root clean.
     ```bash
     unzip gestiondechet.zip -d extracted_project
     ```
-    *Note: The actual project files (including the `.sln` file) are likely inside the extracted folder.*
+
+4.  **Review the Architecture Scaffold:**
+    The `src/` directory contains the layered MVVM + repository scaffold that can be integrated into the extracted Visual Studio solution.
 
 ### Running the Application
 
 1.  **Open the Solution:**
-    Navigate to the extracted folder and open the main solution file in Visual Studio:
     ```
     extracted_project/gestiondechet/gestiondechet.sln
     ```
 
 2.  **Configure and Build:**
-    *   Ensure your Visual Studio project settings are correctly configured to link against your installed Qt libraries.
-    *   Select the desired configuration (e.g., `x64-Debug`).
+    *   Ensure Visual Studio links against Qt.
+    *   Select a configuration (e.g., `x64-Debug`).
     *   Build the solution (`Build > Build Solution`).
 
 3.  **Execute:**
-    Run the application directly from Visual Studio (`Debug > Start Debugging` or `F5`).
+    Run from Visual Studio (`Debug > Start Debugging` or `F5`).
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
-The main application logic is found within the extracted project folder:
-
-| File/Directory | Description |
+| Path | Description |
 | :--- | :--- |
-| `gestiondechet.zip` | **(LFS File)** Compressed archive containing the full project source and solution. |
-| `gestiondechet.sln` | The main Visual Studio solution file. |
-| `gestion_utilisateurs.h`/`.cpp` | Handles user data, authentication, and file-based persistence. |
-| `dashboard.h`/`.cpp` | The main application dashboard view. |
-| `GestionDechetsPage.h`/`.cpp` | Logic for the specific waste management feature. |
-| `utilisateurs.txt` | Local file used to store user credentials. |
+| `docs/architecture.md` | Layered MVVM + repository architecture notes. |
+| `src/` | Architecture scaffold (domain, data, viewmodels, presentation). |
+| `gestiondechet.zip` | **(LFS File)** Compressed archive containing the original solution. |
+| `CONTRIBUTING.md` | Contribution guidelines. |
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.

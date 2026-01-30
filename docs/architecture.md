@@ -36,6 +36,20 @@ Presentation (Qt Widgets/QML)
 - Repositories abstract persistence.
 - Storage adapters implement file or DB access.
 
+
+## Implemented Scaffold
+
+The `src/` directory contains a working scaffold for this architecture:
+
+- **Domain models** in `src/domain/models` (`User`, `WasteEntry`).
+- **Domain services** in `src/domain/services` (`AuthService`, `WasteService`).
+- **Repository interfaces** in `src/data/repositories`.
+- **File-backed stores** in `src/data/storage`.
+- **ViewModels** in `src/viewmodel`.
+- **Presentation stubs** in `src/presentation/views`.
+
+This scaffold is intentionally UI-framework-agnostic so it can be wired into Qt Widgets or QML screens.
+
 ## Suggested Module Map
 
 | Module | Responsibility | Example Types |
@@ -60,3 +74,15 @@ Presentation (Qt Widgets/QML)
 - Swap file storage with SQLite by adding a new storage adapter.
 - Add reporting features by introducing new domain services.
 - Introduce tests by mocking repository interfaces in ViewModels.
+
+
+## Integration Checklist
+
+- Pull the LFS archive and extract the Visual Studio solution.
+- Add the `src/` folders to the solution or move the scaffold into the extracted
+  project tree.
+- Wire UI widgets or QML screens to the ViewModels and domain services.
+- Replace the file-backed repositories with a database-backed adapter when
+  ready for multi-user or larger datasets.
+=======
+

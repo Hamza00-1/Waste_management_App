@@ -28,6 +28,12 @@ My current projects and academic interests revolve around:
 
 ---
 
+## 📌 Repository Note
+
+This folder contains a profile-style README kept alongside the academic project.
+For the waste management system architecture and implementation scaffold, see
+`README.md` and `docs/architecture.md` in the repository root.
+
 ## 🌱 Get in Touch
 
 I am always open to connecting with fellow students, developers, and professionals in the tech and cybersecurity fields.
